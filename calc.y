@@ -28,7 +28,7 @@ line    : assignment ';'		{;}
 		| line exit_command ';'	{exit(EXIT_SUCCESS);}
         ;
 
-assignment : identifier '=' exp  { updateSymbolVal($1,$3); }
+assignment : identifier '=' exp ';' { updateSymbolVal($1,$3); }
 			;
 exp    	: term                  {$$ = $1;}
        	| exp '+' term          {$$ = $1 + $3;}
